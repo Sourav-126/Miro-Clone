@@ -1,15 +1,16 @@
 "use client";
 import { memo } from "react";
 import { Cursor } from "./cursor";
-import { useOthersConnectionIds } from "@liveblocks/react";
-
+import { useOthers } from "@liveblocks/react";
 const Cursors = () => {
-  const ids = useOthersConnectionIds();
+  const others = useOthers();
 
   return (
     <>
-      {ids.map((connectionIds) => {
-        <Cursor key={connectionIds} connectionId={connectionIds} />;
+      {others.map(({ connectionId, presence }) => {
+        if (!presence?.cursor) return null;
+
+        return <Cursor key={connectionId} connectionId={connectionId} />;
       })}
     </>
   );

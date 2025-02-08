@@ -92,7 +92,7 @@ export type CanvasState =
   | {
       mode: CanvasMode.SelectionNet;
       origin: Point;
-      current?: Point;
+      c?: Point;
     }
   | {
       mode: CanvasMode.Inserting;
@@ -127,3 +127,10 @@ export enum CanvasMode {
   Resizing,
   Pencil,
 }
+
+export type Layer =
+  | RectangleLayer
+  | EllipseLayer
+  | PathLayer
+  | TextLayer
+  | NoteLayer;
