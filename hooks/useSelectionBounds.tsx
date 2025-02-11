@@ -42,15 +42,11 @@ const boundingBox = (layers: Layer[]): XYWH | null => {
 
 export const useSelectionBounds = () => {
   const selection = useSelf((me) => me.presence.selection) || [];
-  console.log(selection);
 
   return useStorage((root) => {
     const selectedLayers = selection
       ?.map((layerId) => root.layers.get(layerId)!)
       .filter(Boolean);
-
-    console.log(selectedLayers);
-
     return boundingBox(selectedLayers) || null;
   }, shallow);
 };

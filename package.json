@@ -34,6 +34,7 @@
     "query-string": "^9.1.1",
     "radix-ui": "^1.1.2",
     "react": "^19.0.0",
+    "react-contenteditable": "^3.3.7",
     "react-dom": "^19.0.0",
     "sonner": "^1.7.4",
     "tailwind-merge": "^2.6.0",
