@@ -20,7 +20,7 @@ interface SelectionToolsProps {
 
 export const SelectionTools = memo(
   ({ camera, setLastUsedColor }: SelectionToolsProps) => {
-    const selection = useSelf((self) => self.presence.selection);
+    const selection = useSelf((self) => self.presence.selection) || [];
 
     const handleMoveToBack = useMutation(
       ({ storage }) => {
@@ -71,8 +71,8 @@ export const SelectionTools = memo(
       ({ storage }, fill: Color) => {
         const liveLayers = storage.get("layers");
         setLastUsedColor(fill);
-        selection?.forEach((id) => {
-          liveLayers.get(id).set("fill", fill);
+        selection.forEach((id) => {
+          liveLayers.get(id)?.set("fill", fill);
         });
       },
       [selection, setLastUsedColor]

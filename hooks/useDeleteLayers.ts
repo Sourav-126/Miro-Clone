@@ -1,7 +1,7 @@
 import { useSelf, useMutation } from "@liveblocks/react";
 
 export const useDeleteLayers = () => {
-  const selection = useSelf((me) => me.presence.selection);
+  const selection = useSelf((me) => me.presence.selection) || [];
 
   return useMutation(
     ({ storage, setMyPresence }) => {
