@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import { Canvas } from "./_components/canva";
 import { Room } from "@/components/Room";
 import { Loading } from "./_components/loading";
