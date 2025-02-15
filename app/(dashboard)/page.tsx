@@ -6,8 +6,8 @@ import { useOrganization } from "@clerk/clerk-react";
 
 interface DashBoardPageProps {
   searchParams: {
-    search?: string;
-    favorites?: string;
+    search?: string | undefined;
+    favorites?: string | undefined;
   };
 }
 
