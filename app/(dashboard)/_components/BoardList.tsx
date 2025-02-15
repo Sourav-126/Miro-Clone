@@ -7,19 +7,16 @@ import { api } from "@/convex/_generated/api";
 import { BoardCard } from "./boardCard";
 import { NewBoardButton } from "./newBoardButton";
 import { EmptySearch } from "./emptySearch";
-import { useSearchParams } from "next/navigation";
 
 interface BoardListProps {
   orgId: string;
+  query: {
+    search?: string;
+    favorites?: string;
+  };
 }
 
-export function BoardList({ orgId }: BoardListProps) {
-  const searchParams = useSearchParams();
-
-  const query = {
-    search: searchParams.get("search") || undefined,
-    favorites: searchParams.get("favourites") || undefined,
-  };
+export function BoardList({ orgId, query }: BoardListProps) {
   const data = useQuery(api.boards.get, { orgId, ...query });
 
   if (data === undefined) {
